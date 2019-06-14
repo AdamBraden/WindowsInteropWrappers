@@ -20,7 +20,7 @@ namespace WindowsInterop
     //};
     [System.Runtime.InteropServices.Guid("C79A6CB7-BEBD-47a6-A2AD-4D45AD79C7BC")]
     [System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIUnknown)]
-    interface ICastingEventHandler
+    public interface ICastingEventHandler
     {
         TypedEventHandler<CastingConnection, CastingConnectionState> OnStateChanged();
         TypedEventHandler<CastingConnection, CastingConnectionErrorOccurredEventArgs> OnError();
@@ -43,7 +43,7 @@ namespace WindowsInterop
     //};
     [System.Runtime.InteropServices.Guid("F0A56423-A664-4fbd-8B43-409A45E8D9A1")]
     [System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIUnknown)]
-    interface ICastingController
+    public interface ICastingController
     {
         void Initialize(object CastingEngine, object CastingSource);
         void Connect();

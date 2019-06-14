@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.UI.Input.Spatial;
 
@@ -20,5 +21,17 @@ namespace WindowsInterop
     interface ISpatialInteractionManagerInterop
     {
         SpatialInteractionManager GetForWindow(IntPtr Window, [System.Runtime.InteropServices.In] ref Guid riid);
+    }
+
+    //Helper to initialize SpatialInteractionManager
+    public static class SpatialInteractionManagerInterop
+    {
+        public static SpatialInteractionManager GetForWindow(IntPtr hWnd)
+        {
+            ISpatialInteractionManagerInterop spatialInteractionManagerInterop = (ISpatialInteractionManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(SpatialInteractionManager));
+            Guid guid = typeof(SpatialInteractionManager).GetInterface("ISpatialInteractionManager").GUID;
+
+            return spatialInteractionManagerInterop.GetForWindow(hWnd, ref guid);
+        }
     }
 }

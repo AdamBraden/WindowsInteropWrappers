@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Media;
 
@@ -20,5 +21,17 @@ namespace WindowsInterop
     interface ISystemMediaTransportControlsInterop
     {
         SystemMediaTransportControls GetForWindow(IntPtr appWindow, [System.Runtime.InteropServices.In] ref Guid riid);
+    }
+
+    //Helper to initialize SystemMediaTransportControls
+    public static class SystemMediaTransportControlsInterop
+    {
+        public static SystemMediaTransportControls GetForWindow(IntPtr hWnd)
+        {
+            ISystemMediaTransportControlsInterop systemMediaTransportControlsInterop = (ISystemMediaTransportControlsInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(SystemMediaTransportControls));
+            Guid guid = typeof(SystemMediaTransportControls).GetInterface("ISystemMediaTransportControls").GUID;
+
+            return systemMediaTransportControlsInterop.GetForWindow(hWnd, ref guid);
+        }
     }
 }

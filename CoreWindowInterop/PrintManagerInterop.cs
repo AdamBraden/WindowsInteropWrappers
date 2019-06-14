@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Foundation;
 using Windows.Graphics.Printing;
@@ -24,9 +25,28 @@ namespace WindowsInterop
 
     [System.Runtime.InteropServices.Guid("c5435a42-8d43-4e7b-a68a-ef311e392087")]
     [System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIInspectable)]
-    interface IPrintManagerInterop
+    public interface IPrintManagerInterop
     {
         PrintManager GetForWindow(IntPtr appWindow, [System.Runtime.InteropServices.In] ref Guid riid);
         IAsyncOperation<bool> ShowPrintUIForWindowAsync(IntPtr appWindow, [System.Runtime.InteropServices.In] ref Guid riid);
+    }
+
+    //Helper to initialize PrintManager
+    public static class PrintManagerInterop
+    {
+        public static PrintManager GetForWindow(IntPtr hWnd)
+        {
+            IPrintManagerInterop printManagerInterop = (IPrintManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(PrintManager));
+            Guid guid = typeof(PrintManager).GetInterface("IPrintManager").GUID;
+
+            return printManagerInterop.GetForWindow(hWnd, ref guid);
+        }
+        public static IAsyncOperation<bool> ShowPrintUIForWindowAsync(IntPtr hWnd)
+        {
+            IPrintManagerInterop printManagerInterop = (IPrintManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(PrintManager));
+            Guid guid = typeof(IAsyncOperation<bool>).GUID;
+
+            return printManagerInterop.ShowPrintUIForWindowAsync(hWnd, ref guid);
+        }
     }
 }

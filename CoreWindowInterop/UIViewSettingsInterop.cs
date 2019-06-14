@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.UI.ViewManagement;
 
@@ -61,4 +62,17 @@ namespace WindowsInterop
         IntPtr GetActiveIcon();
         void SetActiveIcon(IntPtr value);
     }
+
+    //Helper to initialize UIViewSettings
+    public static class UIViewSettingsInterop
+    {
+        public static UIViewSettings GetForWindow(IntPtr hWnd)
+        {
+            IUIViewSettingsInterop uIViewSettingsInterop = (IUIViewSettingsInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(UIViewSettings));
+            Guid guid = typeof(UIViewSettings).GetInterface("IUIViewSettings").GUID;
+
+            return uIViewSettingsInterop.GetForWindow(hWnd, ref guid);
+        }
+    }
+
 }

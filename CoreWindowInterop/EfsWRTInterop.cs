@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 using Windows.Foundation;
 using Windows.Security.EnterpriseData;
@@ -23,10 +24,10 @@ namespace WindowsInterop
     //};
     [System.Runtime.InteropServices.Guid("4652651d-c1fe-4ba1-9F0a-c0f56596f721")]
     [System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIInspectable)]
-    interface IProtectionPolicyManagerInterop
+    public interface IProtectionPolicyManagerInterop
     {
-        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessForWindowAsync(IntPtr appWindow, string sourceIdentity, string targetIdentity, [System.Runtime.InteropServices.In] ref Guid riid);
-        ProtectionPolicyManager GetForWindow(IntPtr appWindow, [System.Runtime.InteropServices.In] ref Guid riid);
+        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessForWindowAsync(IntPtr appWindow, [MarshalAs(UnmanagedType.HString)] string sourceIdentity, [MarshalAs(UnmanagedType.HString)] string targetIdentity, [In] ref Guid riid);
+        ProtectionPolicyManager GetForWindow(IntPtr appWindow, [In] ref Guid riid);
     }
 
     //MIDL_INTERFACE("157cfbe4-a78d-4156-b384-61fdac41e686")
@@ -77,15 +78,15 @@ namespace WindowsInterop
     //};
     [System.Runtime.InteropServices.Guid("157cfbe4-a78d-4156-b384-61fdac41e686")]
     [System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIInspectable)]
-    interface IProtectionPolicyManagerInterop2
+    public interface IProtectionPolicyManagerInterop2
     {
-        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessForAppWithWindowAsync(IntPtr appWindow, string sourceIdentity, string appPackageFamilyName, [System.Runtime.InteropServices.In] ref Guid riid);
+        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessForAppWithWindowAsync(IntPtr appWindow, [MarshalAs(UnmanagedType.HString)] string sourceIdentity, [MarshalAs(UnmanagedType.HString)] string appPackageFamilyName, [System.Runtime.InteropServices.In] ref Guid riid);
 
         //TODO: Need to validate the 4 below...
-        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessWithAuditingInfoForWindowAsync(IntPtr appWindow, string sourceIdentity, string targetIdentity, ProtectionPolicyAuditInfo auditInfoUnk, [System.Runtime.InteropServices.In] ref Guid riid);
-        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessWithMessageForWindowAsync(IntPtr appWindow, string sourceIdentity, string targetIdentity, ProtectionPolicyAuditInfo auditInfoUnk, string messageFromApp, [System.Runtime.InteropServices.In] ref Guid riid);
-        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessForAppWithAuditingInfoForWindowAsync(IntPtr appWindow, string sourceIdentity, string appPackageFamilyName, ProtectionPolicyAuditInfo auditInfoUnk, [System.Runtime.InteropServices.In] ref Guid riid);
-        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessForAppWithMessageForWindowAsync(IntPtr appWindow, string sourceIdentity, string appPackageFamilyName, ProtectionPolicyAuditInfo auditInfoUnk, string messageFromApp, [System.Runtime.InteropServices.In] ref Guid riid);
+        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessWithAuditingInfoForWindowAsync(IntPtr appWindow, [MarshalAs(UnmanagedType.HString)] string sourceIdentity, [MarshalAs(UnmanagedType.HString)] string targetIdentity, ProtectionPolicyAuditInfo auditInfoUnk, [System.Runtime.InteropServices.In] ref Guid riid);
+        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessWithMessageForWindowAsync(IntPtr appWindow, [MarshalAs(UnmanagedType.HString)] string sourceIdentity, [MarshalAs(UnmanagedType.HString)] string targetIdentity, ProtectionPolicyAuditInfo auditInfoUnk, [MarshalAs(UnmanagedType.HString)] string messageFromApp, [In] ref Guid riid);
+        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessForAppWithAuditingInfoForWindowAsync(IntPtr appWindow, [MarshalAs(UnmanagedType.HString)] string sourceIdentity, [MarshalAs(UnmanagedType.HString)] string appPackageFamilyName, ProtectionPolicyAuditInfo auditInfoUnk, [In] ref Guid riid);
+        IAsyncOperation<ProtectionPolicyEvaluationResult> RequestAccessForAppWithMessageForWindowAsync(IntPtr appWindow, [MarshalAs(UnmanagedType.HString)] string sourceIdentity, [MarshalAs(UnmanagedType.HString)] string appPackageFamilyName, ProtectionPolicyAuditInfo auditInfoUnk, [MarshalAs(UnmanagedType.HString)] string messageFromApp, [In] ref Guid riid);
 
     }
     //MIDL_INTERFACE("c1c03933-b398-4d93-b0fd-2972adf802c2")

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.AppService;
 using Windows.Foundation;
 
@@ -17,8 +18,20 @@ namespace WindowsInterop
     //};
     [System.Runtime.InteropServices.Guid("65219584-F9CB-4AE3-81F9-A28A6CA450D9")]
     [System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIUnknown)]
-    interface IAppServiceConnectionExtendedExecution
+    public interface IAppServiceConnectionExtendedExecution
     {
         IAsyncOperation<AppServiceConnectionStatus> OpenForExtendedExecutionAsync([System.Runtime.InteropServices.In] ref Guid riid);
+    }
+
+    //Helper to intialize AppServiceConnection
+    public static class AppServiceConnectionExtendedExecution
+    {
+        public static IAsyncOperation<AppServiceConnectionStatus> OpenForExtendedExecutionAsync()
+        {
+            IAppServiceConnectionExtendedExecution appServiceConnectionStatus = (IAppServiceConnectionExtendedExecution)WindowsRuntimeMarshal.GetActivationFactory(typeof(AppServiceConnectionExtendedExecution));
+            Guid guid = typeof(IAsyncOperation<AppServiceConnectionStatus>).GUID;
+
+            return appServiceConnectionStatus.OpenForExtendedExecutionAsync(ref guid);
+        }
     }
 }

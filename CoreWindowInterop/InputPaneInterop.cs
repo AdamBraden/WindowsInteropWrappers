@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.UI.ViewManagement;
 
@@ -17,8 +18,20 @@ namespace WindowsInterop
     //};
     [System.Runtime.InteropServices.Guid("75CF2C57-9195-4931-8332-F0B409E916AF")]
     [System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIInspectable)]
-    interface IInputPaneInterop
+    public interface IInputPaneInterop
     {
         InputPane GetForWindow(IntPtr appWindow, [System.Runtime.InteropServices.In] ref Guid riid);
+    }
+
+    //Helper to initialize InputPane
+    public static class InputPaneInterop
+    {
+        public static InputPane GetForWindow(IntPtr hWnd)
+        {
+            IInputPaneInterop inputPaneInterop = (IInputPaneInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(InputPane));
+            Guid guid = typeof(InputPane).GUID;
+
+            return inputPaneInterop.GetForWindow(hWnd, ref guid);
+        }
     }
 }

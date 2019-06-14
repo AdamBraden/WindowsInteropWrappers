@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Media.PlayTo;
 
@@ -20,10 +21,28 @@ namespace WindowsInterop
     //};
     [System.Runtime.InteropServices.Guid("24394699-1F2C-4EB3-8CD7-0EC1DA42A540")]
     [System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIInspectable)]
-    interface IPlayToManagerInterop
+    public interface IPlayToManagerInterop
     {
         [Obsolete]
         PlayToManager GetForWindow(IntPtr appWindow, [System.Runtime.InteropServices.In] ref Guid riid);
         void ShowPlayToUIForWindow(IntPtr appWindow);
+    }
+
+    //Helper to initialize PlayToManager
+    public static class PlayToManagerInterop
+    {
+        [Obsolete]
+        public static PlayToManager GetForWindow(IntPtr hWnd)
+        {
+            IPlayToManagerInterop playToManagerInterop = (IPlayToManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(PlayToManager));
+            Guid guid = typeof(PlayToManager).GUID;
+
+            return playToManagerInterop.GetForWindow(hWnd, ref guid);
+        }
+        public static void ShowPlayToUIForWindow(IntPtr hWnd)
+        {
+            IPlayToManagerInterop playToManagerInterop = (IPlayToManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(PlayToManager));
+            playToManagerInterop.ShowPlayToUIForWindow(hWnd);
+        }
     }
 }
