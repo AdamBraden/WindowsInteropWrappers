@@ -5,7 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.UI.Input;
 using Windows.UI.Input.Core;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //RadialControllerInterop.h
     //    MIDL_INTERFACE("1B0535C9-57AD-45C1-9D79-AD5C34360513")
@@ -72,7 +72,7 @@ namespace WindowsInterop
         public static RadialController Initialize(IntPtr hWnd)
         {
             IRadialControllerInterop radialControllerInterop = (IRadialControllerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(RadialController));
-            Guid guid = typeof(RadialController).GetInterface("IRadialController").GUID;
+            Guid guid = typeof(RadialController).GUID;
             
             return radialControllerInterop.CreateForWindow(hWnd, ref guid);
         }
@@ -85,7 +85,7 @@ namespace WindowsInterop
         {
 
             IRadialControllerConfigurationInterop radialControllerConfigInterop = (IRadialControllerConfigurationInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(RadialControllerConfiguration));
-            Guid guid = typeof(RadialControllerConfiguration).GetInterface("IRadialControllerConfiguration").GUID;
+            Guid guid = typeof(RadialControllerConfiguration).GUID;
 
             return radialControllerConfigInterop.GetForWindow(hWnd, ref guid);
         }
@@ -97,7 +97,7 @@ namespace WindowsInterop
         public static RadialControllerIndependentInputSource Initialize(IntPtr hwnd)
         {
             IRadialControllerIndependentInputSourceInterop radialControllerIndependentInputSourceInterop = (IRadialControllerIndependentInputSourceInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(RadialControllerIndependentInputSource));
-            Guid guid = typeof(RadialControllerIndependentInputSource).GetInterface("IRadialControllerIndependentInputSource").GUID;
+            Guid guid = typeof(RadialControllerIndependentInputSource).GUID;
 
             return radialControllerIndependentInputSourceInterop.CreateForWindow(hwnd, ref guid);
         }

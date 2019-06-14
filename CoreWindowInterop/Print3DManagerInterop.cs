@@ -5,7 +5,7 @@ using System.Text;
 using Windows.Foundation;
 using Windows.Graphics.Printing3D;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("9CA31010-1484-4587-B26B-DDDF9F9CAECD")
     //IPrinting3DManagerInterop : public IInspectable

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Windows.Data.Pdf;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("7d9dcd91-d277-4947-8527-07a0daeda94a")
     //IPdfRendererNative : public IUnknown

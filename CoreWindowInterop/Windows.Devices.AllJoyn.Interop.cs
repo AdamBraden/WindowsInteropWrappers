@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Devices.AllJoyn;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("fd89c65b-b50e-4a19-9d0c-b42b783281cd")
     //IWindowsDevicesAllJoynBusAttachmentInterop : public IInspectable

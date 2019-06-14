@@ -6,7 +6,7 @@ using Windows.Foundation;
 using Windows.Security.Authentication.Web.Core;
 using Windows.Security.Credentials;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("F4B8E804-811E-4436-B69C-44CB67B72084")
     //IWebAuthenticationCoreManagerInterop : public IInspectable
@@ -38,7 +38,6 @@ namespace WindowsInterop
         public static IAsyncOperation<WebTokenRequestResult> RequestTokenForWindowAsync(IntPtr hWnd, WebTokenRequest request)
         {
             IWebAuthenticationCoreManagerInterop webAuthenticationCoreManagerInterop = (IWebAuthenticationCoreManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(WebAuthenticationCoreManager));
-
             //Guid guid = typeof(WebAuthenticationCoreManager).GetInterface("IWebAuthenticationCoreManager").GUID;
             Guid guid = typeof(IAsyncOperation<WebTokenRequestResult>).GUID;
 
@@ -47,7 +46,6 @@ namespace WindowsInterop
         public static IAsyncOperation<WebTokenRequestResult> RequestTokenWithWebAccountForWindowAsync(IntPtr hWnd, WebTokenRequest request, WebAccount webAccount)
         {
             IWebAuthenticationCoreManagerInterop webAuthenticationCoreManagerInterop = (IWebAuthenticationCoreManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(WebAuthenticationCoreManager));
-
             Guid guid = typeof(IAsyncOperation<WebTokenRequestResult>).GUID;
 
             return webAuthenticationCoreManagerInterop.RequestTokenWithWebAccountForWindowAsync(hWnd, request, webAccount, ref guid);

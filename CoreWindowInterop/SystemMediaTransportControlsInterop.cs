@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Media;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("ddb0472d-c911-4a1f-86d9-dc3d71a95f5a")
     //ISystemMediaTransportControlsInterop : public IInspectable
@@ -29,7 +29,7 @@ namespace WindowsInterop
         public static SystemMediaTransportControls GetForWindow(IntPtr hWnd)
         {
             ISystemMediaTransportControlsInterop systemMediaTransportControlsInterop = (ISystemMediaTransportControlsInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(SystemMediaTransportControls));
-            Guid guid = typeof(SystemMediaTransportControls).GetInterface("ISystemMediaTransportControls").GUID;
+            Guid guid = typeof(SystemMediaTransportControls).GUID;
 
             return systemMediaTransportControlsInterop.GetForWindow(hWnd, ref guid);
         }

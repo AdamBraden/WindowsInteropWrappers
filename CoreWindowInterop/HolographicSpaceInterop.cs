@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Graphics.Holographic;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("5C4EE536-6A98-4B86-A170-587013D6FD4B")
     //IHolographicSpaceInterop : public IInspectable

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.AppService;
 using Windows.Foundation;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("65219584-F9CB-4AE3-81F9-A28A6CA450D9")
     //IAppServiceConnectionExtendedExecution : public IUnknown
@@ -28,7 +28,7 @@ namespace WindowsInterop
     {
         public static IAsyncOperation<AppServiceConnectionStatus> OpenForExtendedExecutionAsync()
         {
-            IAppServiceConnectionExtendedExecution appServiceConnectionStatus = (IAppServiceConnectionExtendedExecution)WindowsRuntimeMarshal.GetActivationFactory(typeof(AppServiceConnectionExtendedExecution));
+            IAppServiceConnectionExtendedExecution appServiceConnectionStatus = (IAppServiceConnectionExtendedExecution)WindowsRuntimeMarshal.GetActivationFactory(typeof(AppServiceConnection));
             Guid guid = typeof(IAsyncOperation<AppServiceConnectionStatus>).GUID;
 
             return appServiceConnectionStatus.OpenForExtendedExecutionAsync(ref guid);

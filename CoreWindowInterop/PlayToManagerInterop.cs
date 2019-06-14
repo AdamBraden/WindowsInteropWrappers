@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Media.PlayTo;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("24394699-1F2C-4EB3-8CD7-0EC1DA42A540")
     //IPlayToManagerInterop : public IInspectable

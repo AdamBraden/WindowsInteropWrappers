@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.UI.ViewManagement;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("75CF2C57-9195-4931-8332-F0B409E916AF")
     //IInputPaneInterop : public IInspectable

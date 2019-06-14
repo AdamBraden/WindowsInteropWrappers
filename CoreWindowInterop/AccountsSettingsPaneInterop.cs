@@ -5,7 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.UI.ApplicationSettings;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("D3EE12AD-3865-4362-9746-B75A682DF0E6")
     //IAccountsSettingsPaneInterop : public IInspectable

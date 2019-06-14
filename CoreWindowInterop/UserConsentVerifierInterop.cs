@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Security.Credentials.UI;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("39E050C3-4E74-441A-8DC0-B81104DF949C")
     //IUserConsentVerifierInterop : public IInspectable

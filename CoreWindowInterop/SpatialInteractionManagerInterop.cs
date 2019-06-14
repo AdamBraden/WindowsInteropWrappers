@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.UI.Input.Spatial;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("5C4EE536-6A98-4B86-A170-587013D6FD4B")
     //ISpatialInteractionManagerInterop : public IInspectable
@@ -29,7 +29,7 @@ namespace WindowsInterop
         public static SpatialInteractionManager GetForWindow(IntPtr hWnd)
         {
             ISpatialInteractionManagerInterop spatialInteractionManagerInterop = (ISpatialInteractionManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(SpatialInteractionManager));
-            Guid guid = typeof(SpatialInteractionManager).GetInterface("ISpatialInteractionManager").GUID;
+            Guid guid = typeof(SpatialInteractionManager).GUID;
 
             return spatialInteractionManagerInterop.GetForWindow(hWnd, ref guid);
         }

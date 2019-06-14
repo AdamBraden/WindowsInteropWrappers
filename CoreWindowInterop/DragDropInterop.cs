@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.ApplicationModel.DataTransfer.DragDrop.Core;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("5AD8CBA7-4C01-4DAC-9074-827894292D63")
     //IDragDropManagerInterop : public IInspectable

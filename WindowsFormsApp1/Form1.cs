@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsInterop;
+using UWPInterop;
 using Windows.Security.Credentials.UI;
 
 namespace WindowsFormsApp1

@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.UI.ViewManagement;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("3694dbf9-8f68-44be-8ff5-195c98ede8a6")
     //IUIViewSettingsInterop : public IInspectable
@@ -69,7 +69,7 @@ namespace WindowsInterop
         public static UIViewSettings GetForWindow(IntPtr hWnd)
         {
             IUIViewSettingsInterop uIViewSettingsInterop = (IUIViewSettingsInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(UIViewSettings));
-            Guid guid = typeof(UIViewSettings).GetInterface("IUIViewSettings").GUID;
+            Guid guid = typeof(UIViewSettings).GUID;
 
             return uIViewSettingsInterop.GetForWindow(hWnd, ref guid);
         }

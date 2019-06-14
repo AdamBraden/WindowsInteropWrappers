@@ -5,7 +5,7 @@ using System.Text;
 using Windows.Foundation;
 using Windows.Graphics.Printing;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("c5435a42-8d43-4e7b-a68a-ef311e392087")
     //IPrintManagerInterop : public IInspectable

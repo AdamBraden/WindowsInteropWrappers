@@ -4,7 +4,7 @@ using System.Text;
 using Windows.Foundation;
 using Windows.Media.Casting;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("C79A6CB7-BEBD-47a6-A2AD-4D45AD79C7BC")
     //ICastingEventHandler : public IUnknown

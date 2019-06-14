@@ -5,7 +5,7 @@ using System.Text;
 using Windows.Foundation;
 using Windows.Security.EnterpriseData;
 
-namespace WindowsInterop
+namespace UWPInterop
 {
     //MIDL_INTERFACE("4652651d-c1fe-4ba1-9F0a-c0f56596f721")
     //IProtectionPolicyManagerInterop : public IInspectable
