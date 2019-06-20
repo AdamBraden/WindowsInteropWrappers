@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.ApplicationModel.UserActivities;
@@ -34,7 +35,7 @@ namespace UWPInterop
     [System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIInspectable)]
     public interface IUserActivitySourceHostInterop
     {
-        void SetActivitySourceHost(string activitySourceHost);
+        void SetActivitySourceHost([MarshalAs(UnmanagedType.HString)] string activitySourceHost);
     }
     //MIDL_INTERFACE("DD69F876-9699-4715-9095-E37EA30DFA1B")
     //IUserActivityRequestManagerInterop : public IInspectable
