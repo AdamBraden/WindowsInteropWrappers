@@ -80,14 +80,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoreWindowInterop\UWPInterop.csproj">
-      <Project>{5a301e20-616a-43df-9c81-132ee605470a}</Project>
-      <Name>UWPInterop</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.SDK.Contracts">
-      <Version>10.0.18362.2002-preview</Version>
+    <PackageReference Include="UWP.API.DotNet.Interop.Wrappers">
+      <Version>0.9.2-preview</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

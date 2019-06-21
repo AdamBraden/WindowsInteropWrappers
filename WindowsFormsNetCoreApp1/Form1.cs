@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UWPInterop;
 
-namespace WindowsFormsApp1
+namespace WindowsFormsNetCoreApp1
 {
     public partial class Form1 : Form
     {
@@ -17,10 +17,9 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-
         private async void Button1_Click(object sender, EventArgs e)
         {
-            
+
             await UserConsentVerifierInterop.RequestVerificationForWindowAsync(this.Handle, "Enter PIN for me:");
 
         }

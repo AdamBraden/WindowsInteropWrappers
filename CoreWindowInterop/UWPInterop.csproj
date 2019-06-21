@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netcoreapp3.0;net461</TargetFrameworks>
     <PackageId>UWP.API.DotNet.Interop.Wrappers</PackageId>
-    <Version>0.9.01-preview</Version>
+    <Version>0.9.2-preview</Version>
     <Authors>Adam Braden</Authors>
     <Company>Microsoft Corp.</Company>
     <Product>Windows 10 SDK</Product>
@@ -26,7 +26,6 @@ and others.</Description>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.18362.2002-preview" />
-    <PackageReference Include="System.Runtime.InteropServices.WindowsRuntime" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
